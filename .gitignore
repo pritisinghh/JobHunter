@@ -1,0 +1,62 @@
+# compiled output
+/dist
+/node_modules
+
+
+#backend
+/jobradoodle/backend/node_modules
+/jobradoodle/backend/dist
+/jobradoodle/backend/DS_Store
+
+#frontend
+/jobradoodle/frontend/node_modules
+/jobradoodle/frontend/dist
+/jobradoodle/frontend/DS_Store
+/jobradoodle/frontend/package-lock.json
+/jobradoodle/frontend/build
+
+#js files
+*.js
+*.js.map
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+#.env file - if you see this, you'll need to grab .env from an earlier commit
+.env
+
+# output files
+/jobradoodle/backend/src/utils/resume_maker_util/files/*.pdf
+/jobradoodle/backend/src/utils/resume_maker_util/files/*.tex
+
+# Mailreader
+/mailreader/__pycache__

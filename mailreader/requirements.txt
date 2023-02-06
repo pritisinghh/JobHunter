@@ -1,0 +1,8 @@
+python-dotenv
+flask
+psycopg2-binary
+nltk
+pandas
+stanfordcorenlp
+sklearn
+scikit-learn

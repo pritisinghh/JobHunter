@@ -1,0 +1,30 @@
+.pageContent {
+	margin-top: 15%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	max-height: 80%;
+}
+
+.jobradoodleOnScreenLogo {
+	max-width: 10%;
+	margin: 0% 5% 3% 5%;
+	transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.signInWithGoogleButton {
+	background-color: #4285f4;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 15pt;
+	/* button shadow */
+	box-shadow: 0px 2px 6px #999;
+}
+
+.signInWithGoogleButton:hover {
+	background-color: #357ae8;
+}

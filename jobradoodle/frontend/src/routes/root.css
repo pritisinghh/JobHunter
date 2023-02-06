@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#leftMenu {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-right: 2px solid black;
+}
+
+#readMailButtonDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.readMailButton {
+ padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+}
+
+#leftMenuContent {
+	line-height: 2;
+}
+
+#leftMenuContent h2 {
+	font-size: 15pt;
+	margin-left: 5px;
+}
+
+#leftMenuContent a {
+	text-decoration: none;
+	color: black;
+	font-size: 12pt;
+	overflow-x: hidden;
+	margin-left: 15px;
+}
+
+#jobradoodleLogo {
+	max-width: 100%;
+	margin: 0% 5% 3% 5%;
+	transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+#jobradoodleTitle {
+	font-size: 15pt;
+	display: flex;
+	align-items: center;
+}
+
+#topMenu {
+  background-color: #f2f2f2;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+#contentTitle {
+	margin-left: 10px;
+	font-size: 32pt;
+	font-weight: normal;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+#detail {
+  margin-left: 200px;
+  margin-top: 50px;
+  padding: 0px;
+}
+
+.boardButton {
+	border: 4px solid red;
+	border-radius: 25px;
+	margin: 0px 5px 3px 5px;
+	transition: 0.3s;
+}
+
+.boardButton:hover{
+	font-weight: bold;
+	background-color: red;
+}
+
+.boardButtonLink {
+	color: #3e549d;
+}
+
+.activeBoardButton {
+	border: 4px solid red;
+	background-color: red;
+	border-radius: 25px;
+	margin: 0px 5px 3px 5px;
+}
+
+.currentTopButton, .someTopButton {
+	background-blend-mode: lighten;
+	background-color: rgba(200, 200, 200, .5);
+	border-radius: 4px;
+	text-decoration: none;
+	color: black;
+	padding: 1px 12px 1px 12px;
+	margin-right: 8px;
+}
+
+.someTopButton {
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+}
+
+.flex {
+  display: flex;
+
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.flex-item-3 {
+  flex: 3;
+}
+
+.flex-item-buttons {
+	flex: 1;
+	margin-left: -120px;
+  }
+
+.nav-links li{
+	transition :0.3s;
+	width:90%;
+	margin-left: 8px;
+}
+
+.nav-links li:hover{
+	border: 2px solid red;
+	border-radius: 18px;
+  	padding-bottom: 3px;
+}

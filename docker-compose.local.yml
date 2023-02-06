@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # Jobdradoodle Backend
+  backend:
+    build:
+      context: ./jobradoodle/backend
+    image: skini25/jb-backend
+    container_name: jb-backend
+    hostname: backend
+    env_file:
+      - .env
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    depends_on:
+      - mailreader
+    networks:
+      - jb_network
+
+  # # Jobradoodle Frontend
+  frontend:
+    build:
+      context: ./jobradoodle/frontend
+    image: skini25/jb-frontend
+    hostname: frontend
+    container_name: jb-frontend
+    environment:
+      - REACT_APP_BACKEND_PORT=${REACT_APP_BACKEND_PORT}
+      - REACT_APP_BACKEND_SERVICE_NAME=${REACT_APP_BACKEND_SERVICE_NAME}
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    depends_on:
+      - backend
+    networks:
+      - jb_network
+  
+  # # Flask mailreader
+  mailreader:
+    build:
+      context: ./mailreader
+    image: skini25/jb-mailreader
+    container_name: jb-mailreader
+    hostname: mailreader
+    environment:
+      - MAILREADER_PORT=${MAILREADER_PORT}
+      - CORENLP_SERVICE_NAME=${CORENLP_SERVICE_NAME}
+      - CORENLP_PORT=${CORENLP_PORT}
+      - PYTHONUNBUFFERED=1
+    ports:
+      - ${MAILREADER_PORT}:${MAILREADER_PORT}
+    depends_on:
+      - corenlp
+    networks:
+      - jb_network
+  
+  # Stanford CoreNLP
+  corenlp:
+    build:
+      context: ./corenlp
+    image: skini25/jb-corenlp
+    container_name: jb-corenlp
+    hostname: corenlp
+    environment:
+      - JAVA_XMX=4G
+      - ANNOTATORS=tokenize,ssplit,pos,lemma,parse,sentiment
+      - TIMEOUT_MILLISECONDS=60000
+      - THREADS=2
+      - MAX_CHAR_LENGTH=100000
+    ports:
+      - ${CORENLP_PORT}:${CORENLP_PORT}
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - jb_network
+    # platform: linux/amd64
+
+  # Postgres database
+  db:
+    image: postgres
+    container_name: jb-db
+    hostname: db
+    environment:
+      - PGDATA=pgdata
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST_AUTH_METHOD
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    restart: always
+    networks:
+      - jb_network
+  
+networks:
+  jb_network:
+    driver: bridge
+
+volumes:
+  pgdata:

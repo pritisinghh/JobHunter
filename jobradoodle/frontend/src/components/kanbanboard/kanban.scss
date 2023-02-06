@@ -1,0 +1,27 @@
+.kanban {
+    display: flex;
+    align-items: flex-start;
+
+    &__section {
+        width: 400px;
+        padding: 0px;
+		border: 1px solid black;
+		overflow-y: auto;
+
+        & ~ & {
+            margin-left: 0px;
+        }
+
+        &__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0px 0 20px;
+        }
+
+        &__content {
+            & > * ~ * {
+                margin-top: 0px;
+            }
+        }
+    } 
+}

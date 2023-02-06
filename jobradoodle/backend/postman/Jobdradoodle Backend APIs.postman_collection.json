@@ -1,0 +1,725 @@
+{
+	"info": {
+		"_postman_id": "a9a591d5-c320-4a83-ae07-812872a1e44f",
+		"name": "Jobdradoodle Backend APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Job Board",
+			"item": [
+				{
+					"name": "Get All JobBoards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Board by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Job Board",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"new board\",\n\"description\": \"My Applications for SWE Fulltime roles\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs on Job Board",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/5/jobs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								"5",
+								"jobs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Job to Job Board",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/2/addJob/8/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								"2",
+								"addJob",
+								"8",
+								""
+							]
+						},
+						"description": "/{dashboardId}/{jobId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Board",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Summer 2088\",\n    \"description\": \"too late\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/jobboard/2/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"jobboard",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "Create New Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"Analyst 2\",\n    \"requisitionId\": \"3434\",\n    \"status\": \"NO_OFFER\",\n    \"description\": \"Dont work here pls\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/job/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"job",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/job/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"job",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/job/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"job",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Boards by Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/job/1/boards/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"job",
+								"1",
+								"boards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"7\",\n    \"status\": \"APPLIED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/job/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"job",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resume",
+			"item": [
+				{
+					"name": "Get All Resumes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/resume",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resume By id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/resume/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get child resumes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"content\": \"<Latex content goes here>\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/resume/2/children/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume",
+								"2",
+								"children",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Resume Content",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"1\",\n    \"content\": \"dfdfdfdfdfdff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/resume/updateContent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume",
+								"updateContent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Parent Resume",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"resumeId\": \"4\",\n    \"parentResumeId\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/resume/setParent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume",
+								"setParent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new resume",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"skills\",\n    \"jsonTemplate\": {\n        \"education\": [\n            \"IU\", \"UoM\"\n        ],\n        \"skills\": {\n            \"tech\": [1,2,4]\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/resume/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"resume",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User-Auth",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mails by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/8/5/mails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"8",
+								"5",
+								"mails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/u/kinisrinivas96",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"u",
+								"kinisrinivas96"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user job boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/9/boards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"9",
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Job board to user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3005/api/auth/9/addBoard/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"9",
+								"addBoard",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user preferences",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jobPreferences\": [\"software\", \"IT\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/auth/1/updatePreferences",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"auth",
+								"1",
+								"updatePreferences"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Adzuna",
+			"item": [
+				{
+					"name": "Adzuna Job Search (Not our app)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=5d6ff435&app_key=83355944874e0fae5e3e18ac6bf75d14&what=javascript java&results_per_page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"adzuna",
+								"com"
+							],
+							"path": [
+								"v1",
+								"api",
+								"jobs",
+								"gb",
+								"search",
+								"1"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "5d6ff435"
+								},
+								{
+									"key": "app_key",
+									"value": "83355944874e0fae5e3e18ac6bf75d14"
+								},
+								{
+									"key": "what",
+									"value": "javascript java"
+								},
+								{
+									"key": "results_per_page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jobradoodle Job Search using Adzuna",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"what\": \"Java Javascript\",\n    \"company\": \"Amazon\",\n    \"where\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/adzuna/1/search/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"adzuna",
+								"1",
+								"search",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

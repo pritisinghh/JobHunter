@@ -1,0 +1,131 @@
+version: '3.8'
+
+services:
+  # Jobdradoodle Backend
+  backend:
+    build:
+      context: ./jobradoodle/backend
+    image: ${AZURE_ACR}/jb-backend
+    container_name: jb-backend
+    hostname: backend
+    env_file:
+      - .env
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    depends_on:
+      - mailreader
+    networks:
+      - jb_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 0.2g
+
+  # # Jobradoodle Frontend
+  frontend:
+    build:
+      context: ./jobradoodle/frontend
+    image: ${AZURE_ACR}/jb-frontend
+    hostname: frontend
+    container_name: jb-frontend
+    environment:
+      - REACT_APP_BACKEND_PORT=${REACT_APP_BACKEND_PORT}
+      - REACT_APP_BACKEND_SERVICE_NAME=${REACT_APP_BACKEND_SERVICE_NAME}
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    depends_on:
+      - backend
+    networks:
+      - jb_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 0.2g
+  
+  # # Flask mailreader
+  mailreader:
+    build:
+      context: ./mailreader
+    image: ${AZURE_ACR}/jb-mailreader
+    container_name: jb-mailreader
+    hostname: mailreader
+    environment:
+      - MAILREADER_PORT=${MAILREADER_PORT}
+      - CORENLP_SERVICE_NAME=${CORENLP_SERVICE_NAME}
+      - CORENLP_PORT=${CORENLP_PORT}
+      - PYTHONUNBUFFERED=1
+    ports:
+      - ${MAILREADER_PORT}:${MAILREADER_PORT}
+    depends_on:
+      - corenlp
+    networks:
+      - jb_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 0.1g
+  
+  # Stanford CoreNLP
+  corenlp:
+    build:
+      context: ./corenlp
+    image: ${AZURE_ACR}/jb-corenlp
+    container_name: jb-corenlp
+    hostname: corenlp
+    environment:
+      - JAVA_XMX=4G
+      - ANNOTATORS=tokenize,ssplit,pos,lemma,parse,sentiment
+      - TIMEOUT_MILLISECONDS=60000
+      - THREADS=6
+      - MAX_CHAR_LENGTH=100000
+    ports:
+      - ${CORENLP_PORT}:${CORENLP_PORT}
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - jb_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 0.5g
+    # platform: linux/amd64
+
+  # Postgres database
+  db:
+    image: postgres
+    container_name: jb-db
+    hostname: db
+    environment:
+      - PGDATA=pgdata
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST_AUTH_METHOD
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    restart: always
+    networks:
+      - jb_network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1g
+  
+networks:
+  jb_network:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: azure_file
+    driver_opts: 
+      share_name: ${AZURE_SHARE_NAME}
+      storage_account_name: ${AZURE_STORAGE_ACCOUNT}

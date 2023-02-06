@@ -1,0 +1,19 @@
+.viewSwitchBtns {
+	margin-left: 200px;
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+	size: 200px;
+	background-blend-mode: lighten;
+	background-color: rgba(200, 200, 200, .5);
+	border-radius: 4px;
+	text-decoration: none;
+	color: black;
+	padding: 1px 12px 1px 12px;
+	margin-right: 8px;
+}
+.dataGrid{
+	width: 900px;
+	height : 450px;
+	margin-top: 20px;
+	text-align: center;
+	margin-left: 40px;
+}
