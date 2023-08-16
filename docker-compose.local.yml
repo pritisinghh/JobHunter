@@ -5,7 +5,7 @@ services:
   backend:
     build:
       context: ./jobradoodle/backend
-    image: skini25/jb-backend
+    image: jb-backend
     container_name: jb-backend
     hostname: backend
     env_file:
@@ -21,7 +21,7 @@ services:
   frontend:
     build:
       context: ./jobradoodle/frontend
-    image: skini25/jb-frontend
+    image: jb-frontend
     hostname: frontend
     container_name: jb-frontend
     environment:
@@ -38,7 +38,7 @@ services:
   mailreader:
     build:
       context: ./mailreader
-    image: skini25/jb-mailreader
+    image: jb-mailreader
     container_name: jb-mailreader
     hostname: mailreader
     environment:
@@ -57,7 +57,7 @@ services:
   corenlp:
     build:
       context: ./corenlp
-    image: skini25/jb-corenlp
+    image: jb-corenlp
     container_name: jb-corenlp
     hostname: corenlp
     environment:
